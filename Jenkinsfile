@@ -13,6 +13,10 @@ node {
         sh "${GRADLE_HOME}/bin/gradle build"
     }
 
+    stage('build') {
+        sh "${GRADLE_HOME}/bin/gradle build"
+    }
+
     stage('sonar-scanner') {
       def sonarqubeScannerHome = tool name: 'sonar', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
       withCredentials([string(credentialsId: 'sonar', variable: 'sonarLogin')]) {
